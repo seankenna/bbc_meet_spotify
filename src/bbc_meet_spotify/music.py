@@ -1,6 +1,7 @@
 import re
 import unicodedata
 
+
 class Music:
     def __init__(self, artist, title):
         self.title = self.clean_string(title)
@@ -28,6 +29,16 @@ class Music:
         )
         new_string = re.sub("[^A-Za-z0-9.'’]+", " ", new_string)
         return new_string.lower().split(" feat.")[0].split(" ft.")[0]
+
+    def sanitize(self):
+        return Music(self.artist
+                     .replace("'", "")
+                     .replace(".", "")
+                     .strip(),
+                     self.title
+                     .replace("'", "")
+                     .replace(".", "")
+                     .strip())
 
     def to_string(self):
         """Get string value for album or song"""
