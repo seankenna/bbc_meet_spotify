@@ -1,0 +1,353 @@
+[
+  {
+    "album": {
+      "album_group": "compilation",
+      "album_type": "compilation",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "string"
+          },
+          "href": "string",
+          "id": "string",
+          "name": "string",
+          "type": "artist",
+          "uri": "string"
+        }
+      ],
+      "available_markets": [
+        "CA",
+        "BR",
+        "IT"
+      ],
+      "copyrights": [
+        {
+          "text": "string",
+          "type": "string"
+        }
+      ],
+      "external_ids": {
+        "ean": "string",
+        "isrc": "string",
+        "upc": "string"
+      },
+      "external_urls": {
+        "spotify": "string"
+      },
+      "genres": [
+        "Egg punk",
+        "Noise rock"
+      ],
+      "href": "string",
+      "id": "1",
+      "images": [
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+          "width": 300
+        }
+      ],
+      "label": "string",
+      "name": "title",
+      "popularity": 0,
+      "release_date": "1981-12",
+      "release_date_precision": "year",
+      "restrictions": {
+        "reason": "market"
+      },
+      "total_tracks": 9,
+      "type": "album",
+      "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ"
+    },
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "string"
+        },
+        "followers": {
+          "href": "string",
+          "total": 0
+        },
+        "genres": [
+          "Prog rock",
+          "Grunge"
+        ],
+        "href": "string",
+        "id": "string",
+        "images": [
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+            "width": 300
+          }
+        ],
+        "name": "string",
+        "popularity": 0,
+        "type": "artist",
+        "uri": "string"
+      }
+    ],
+    "available_markets": [
+      "string"
+    ],
+    "disc_number": 0,
+    "duration_ms": 0,
+    "explicit": true,
+    "external_ids": {
+      "ean": "string",
+      "isrc": "string",
+      "upc": "string"
+    },
+    "external_urls": {
+      "spotify": "string"
+    },
+    "href": "string",
+    "id": "1",
+    "is_local": true,
+    "is_playable": true,
+    "linked_from": {},
+    "name": "title",
+    "popularity": 0,
+    "preview_url": "string",
+    "restrictions": {
+      "reason": "string"
+    },
+    "track_number": 0,
+    "type": "track",
+    "uri": "string"
+  },
+  {
+    "album": {
+      "album_group": "compilation",
+      "album_type": "compilation",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "string"
+          },
+          "href": "string",
+          "id": "string",
+          "name": "string",
+          "type": "artist",
+          "uri": "string"
+        }
+      ],
+      "available_markets": [
+        "CA",
+        "BR",
+        "IT"
+      ],
+      "copyrights": [
+        {
+          "text": "string",
+          "type": "string"
+        }
+      ],
+      "external_ids": {
+        "ean": "string",
+        "isrc": "string",
+        "upc": "string"
+      },
+      "external_urls": {
+        "spotify": "string"
+      },
+      "genres": [
+        "Egg punk",
+        "Noise rock"
+      ],
+      "href": "string",
+      "id": "2",
+      "images": [
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+          "width": 300
+        }
+      ],
+      "label": "string",
+      "name": "title",
+      "popularity": 0,
+      "release_date": "1981-12",
+      "release_date_precision": "year",
+      "restrictions": {
+        "reason": "market"
+      },
+      "total_tracks": 9,
+      "type": "album",
+      "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ"
+    },
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "string"
+        },
+        "followers": {
+          "href": "string",
+          "total": 0
+        },
+        "genres": [
+          "Prog rock",
+          "Grunge"
+        ],
+        "href": "string",
+        "id": "string",
+        "images": [
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+            "width": 300
+          }
+        ],
+        "name": "string",
+        "popularity": 0,
+        "type": "artist",
+        "uri": "string"
+      }
+    ],
+    "available_markets": [
+      "string"
+    ],
+    "disc_number": 0,
+    "duration_ms": 0,
+    "explicit": true,
+    "external_ids": {
+      "ean": "string",
+      "isrc": "string",
+      "upc": "string"
+    },
+    "external_urls": {
+      "spotify": "string"
+    },
+    "href": "string",
+    "id": "string",
+    "is_local": true,
+    "is_playable": true,
+    "linked_from": {},
+    "name": "string",
+    "popularity": 0,
+    "preview_url": "string",
+    "restrictions": {
+      "reason": "string"
+    },
+    "track_number": 0,
+    "type": "track",
+    "uri": "string"
+  },
+  {
+    "album": {
+      "album_group": "compilation",
+      "album_type": "compilation",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "string"
+          },
+          "href": "string",
+          "id": "string",
+          "name": "string",
+          "type": "artist",
+          "uri": "string"
+        }
+      ],
+      "available_markets": [
+        "CA",
+        "BR",
+        "IT"
+      ],
+      "copyrights": [
+        {
+          "text": "string",
+          "type": "string"
+        }
+      ],
+      "external_ids": {
+        "ean": "string",
+        "isrc": "string",
+        "upc": "string"
+      },
+      "external_urls": {
+        "spotify": "string"
+      },
+      "genres": [
+        "Egg punk",
+        "Noise rock"
+      ],
+      "href": "string",
+      "id": "3",
+      "images": [
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+          "width": 300
+        }
+      ],
+      "label": "string",
+      "name": "string",
+      "popularity": 0,
+      "release_date": "1981-12",
+      "release_date_precision": "year",
+      "restrictions": {
+        "reason": "market"
+      },
+      "total_tracks": 9,
+      "type": "album",
+      "uri": "spotify:album:2up3OPMp9Tb4dAKM2erWXQ"
+    },
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "string"
+        },
+        "followers": {
+          "href": "string",
+          "total": 0
+        },
+        "genres": [
+          "Prog rock",
+          "Grunge"
+        ],
+        "href": "string",
+        "id": "string",
+        "images": [
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+            "width": 300
+          }
+        ],
+        "name": "string",
+        "popularity": 0,
+        "type": "artist",
+        "uri": "string"
+      }
+    ],
+    "available_markets": [
+      "string"
+    ],
+    "disc_number": 0,
+    "duration_ms": 0,
+    "explicit": true,
+    "external_ids": {
+      "ean": "string",
+      "isrc": "string",
+      "upc": "string"
+    },
+    "external_urls": {
+      "spotify": "string"
+    },
+    "href": "string",
+    "id": "2",
+    "is_local": true,
+    "is_playable": true,
+    "linked_from": {},
+    "name": "TITLE",
+    "popularity": 0,
+    "preview_url": "string",
+    "restrictions": {
+      "reason": "string"
+    },
+    "track_number": 0,
+    "type": "track",
+    "uri": "string"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "collaborative": true,
+  "description": "string",
+  "external_urls": {
+    "spotify": "string"
+  },
+  "href": "string",
+  "id": "1",
+  "images": [
+    {
+      "height": 300,
+      "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228\n",
+      "width": 300
+    }
+  ],
+  "name": "2013-02-01_test-playlist-id",
+  "owner": {
+    "display_name": "string",
+    "external_urls": {
+      "spotify": "string"
+    },
+    "followers": {
+      "href": "string",
+      "total": 0
+    },
+    "href": "string",
+    "id": "string",
+    "type": "user",
+    "uri": "string"
+  },
+  "public": true,
+  "snapshot_id": "string",
+  "tracks": {
+    "href": "string",
+    "total": 0
+  },
+  "type": "string",
+  "uri": "string"
+}

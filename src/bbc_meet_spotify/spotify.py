@@ -13,11 +13,18 @@ class Spotify:
         self.music_not_found = []
 
     def add_albums(self, playlist_name: str, albums: Set[Music], add_date_prefix=True, public_playlist=True) -> None:
-        playlist_id = self.spotipy_client.create_playlist(playlist_name, add_date_prefix, public_playlist)
+        """
+        Adds albums to Spotify playlist
+        :param playlist_name: name of the playlist to be created or appended to
+        :param albums: albums to be added
+        :param add_date_prefix: If true, add date prefix to playlist
+        :param public_playlist: If true, make playlist public
+        """
+        playlist_id = self.spotipy_client.get_playlist(playlist_name, add_date_prefix, public_playlist)["id"]
         album_ids = []
         for album in albums:
             try:
-                album_ids.extend(self.spotipy_client.query_spotify_album_tracks(album))
+                album_ids.extend(self.spotipy_client.get_album(album)["id"])
             except MusicNotFoundError:
                 self.music_not_found.append(album.to_string())
                 break
@@ -27,13 +34,13 @@ class Spotify:
 
     def add_songs(self, playlist_name: str, songs: Set[Music], add_date_prefix=True, public_playlist=True) -> None:
         """
-        Run all spotify actions
-        :param playlist_name: name of the playlist to be used or created
+        Adds songs to Spotify playlist
+        :param playlist_name: name of the playlist to created or appended to
         :param songs: songs to be added
         :param add_date_prefix: If true, add date prefix to playlist
         :param public_playlist: If true, make playlist public
         """
-        playlist_id = self.spotipy_client.create_playlist(playlist_name, add_date_prefix, public_playlist)
+        playlist_id = self.spotipy_client.get_playlist(playlist_name, add_date_prefix, public_playlist)["id"]
         song_ids = self._get_song_ids(songs)
         if not self.music_not_found:
             self.spotipy_client.add_music_to_playlist(playlist_id, song_ids)
@@ -42,29 +49,29 @@ class Spotify:
 
     def _get_song_id(self, song: Music) -> str:
         """
-        Get song id from spotify.
-        Will attempt to first search keeping apostrophes in text, if that fails then
-        the song will be searched again without apostrophes
-        :param song: Song
-        :return: song_id or None if song was not found
+        Get Spotify song id
+        First queries Spotify with unsanitised track details
+        Second queries spotify with sanitised track details
+        If not found, appends to not found list
+        :param song: song to lookup
+        :return: song_id
         """
         try:
-            return self.spotipy_client.query_spotify_track(song)
+            return self.spotipy_client.get_song(song)["id"]
         except MusicNotFoundError:
             try:
                 song = song.sanitize()
-                return self.spotipy_client.query_spotify_track(song)
+                return self.spotipy_client.get_song(song)
             except MusicNotFoundError:
                 self.music_not_found.append(f"{song.to_string()}")
 
     def _get_song_ids(self, songs: List[Music]) -> List[str]:
         """
-        Convert all Songs into song ids, failed conversions will be removed
-        :param songs: Songs to be converted
-        :return: list of song ids from spotify
+        Get list of Spotify song ids
+        :param songs: list of songs to search
+        :return: list of song ids
         """
-        song_ids = [self._get_song_id(song) for song in songs]
-        return list(filter(None, song_ids))
+        return [self._get_song_id(song) for song in songs]
 
     def _log_music_not_found(self) -> None:
         message_base = "All done!"

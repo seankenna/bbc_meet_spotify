@@ -31,6 +31,10 @@ class Music:
         return new_string.lower().split(" feat.")[0].split(" ft.")[0]
 
     def sanitize(self):
+        """
+        Strips apostrophes, full-stops and leading/trailing whitespace from string
+        :return: sanitised string
+        """
         return Music(self.artist
                      .replace("'", "")
                      .replace(".", "")
