@@ -45,8 +45,8 @@ class TestSpotify:
     def test_add_songs(self, mock_spotipy_client: MagicMock):
         mock_spotipy_client_instance = mock_spotipy_client.return_value
         mock_spotipy_client_instance.get_playlist.return_value = {"id": "1"}
-        mock_spotipy_client_instance.get_song.side_effect = [{"id": "1"}, {"id": "2"}, {"id": "3"}]
-        mock_spotipy_client_instance.add_music_to_playlist.side_effect = [None, None]
+        mock_spotipy_client_instance.get_song.side_effect = [{"id": "1"}, {"id": "2"}, {"id": "3"}, None]
+        mock_spotipy_client_instance.add_music_to_playlist.return_value = None
         spotify = Spotify()
         song1 = Music("artist1", "title1")
         song2 = Music("artist2", "title2")
@@ -54,6 +54,7 @@ class TestSpotify:
         spotify.add_songs("test-playlist-name", [song1, song2, song3])
         mock_spotipy_client_instance.get_song.assert_has_calls([call(song1), call(song2), call(song3)])
         mock_spotipy_client_instance.add_music_to_playlist.assert_called_with("1", ["1", "2", "3"])
+        assert mock_spotipy_client_instance.add_music_to_playlist.call_count == 1
         assert spotify.music_not_found == []
 
     @patch("bbc_meet_spotify.spotify.SpotipyClient")

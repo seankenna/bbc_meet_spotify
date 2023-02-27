@@ -28,6 +28,7 @@ class Spotify:
             except MusicNotFoundError:
                 self.music_not_found.append(album.to_string())
                 break
+            logger.info(f"Adding album to playlist")
             self.spotipy_client.add_music_to_playlist(playlist_id, album_ids)
 
         self._log_music_not_found()
@@ -42,7 +43,8 @@ class Spotify:
         """
         playlist_id = self.spotipy_client.get_playlist(playlist_name, add_date_prefix, public_playlist)["id"]
         song_ids = self._get_song_ids(songs)
-        if not self.music_not_found:
+        if song_ids:
+            logger.info(f"Adding songs to playlist")
             self.spotipy_client.add_music_to_playlist(playlist_id, song_ids)
 
         self._log_music_not_found()
@@ -71,7 +73,8 @@ class Spotify:
         :param songs: list of songs to search
         :return: list of song ids
         """
-        return [self._get_song_id(song) for song in songs]
+        song_ids = [self._get_song_id(song) for song in songs]
+        return list(filter(None, song_ids))
 
     def _log_music_not_found(self) -> None:
         message_base = "All done!"
