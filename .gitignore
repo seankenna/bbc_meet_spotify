@@ -133,5 +133,5 @@ dmypy.json
 
 # Project specific
 .cache*
-config.toml
+/config.toml
 playlist_history/*.toml

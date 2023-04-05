@@ -1,0 +1,2 @@
+class MusicNotFoundError(Exception):
+    pass
