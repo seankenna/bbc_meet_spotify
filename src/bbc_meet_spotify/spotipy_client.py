@@ -4,36 +4,22 @@ from typing import List
 
 import spotipy
 import toml
-from spotipy import util
+from loguru import logger
+from spotipy import SpotifyOAuth
 
 from bbc_meet_spotify.music import Music
-from loguru import logger
-
 from bbc_meet_spotify.music_not_found import MusicNotFoundError
 
 
 class SpotipyClient:
     def __init__(self, config_path=Path("./config.toml")):
         config = toml.load(config_path)
-        token = self._get_spotify_token(config)
-        self.username = config["username"]
-        self.spotipy = spotipy.Spotify(auth=token)
-
-    @staticmethod
-    def _get_spotify_token(config: dict) -> str:
-        """
-        If token isn't already generated, redirect to authorisation and then enter url to command line input
-        :param config: configuration
-        :return: spotify OAuth token
-        """
-        token = util.prompt_for_user_token(
-            config["username"],
-            "playlist-modify-private playlist-modify-public",
-            config["client_id"],
-            config["client_secret"],
-            "http://localhost:8888",
-        )
-        return token
+        auth_manager = SpotifyOAuth(client_id=config["client_id"],
+                                    client_secret=config["client_secret"],
+                                    redirect_uri="http://localhost:8888",
+                                    scope="playlist-modify-private playlist-modify-public")
+        self.spotipy = spotipy.Spotify(auth_manager=auth_manager)
+        self.username = self.spotipy.current_user()["display_name"]
 
     def get_playlist(self, playlist_name: str, add_date_prefix: bool = True, public_playlist: bool = True) -> str:
         """
@@ -66,11 +52,11 @@ class SpotipyClient:
         :param music_ids: list of song or album ids
         :return:
         """
-        playlist_info = self.spotipy.user_playlist(self.username, playlist_id, "tracks")
+        playlist_info = self.spotipy.playlist(playlist_id)
         existing_music = [x["track"]["id"] for x in playlist_info["tracks"]["items"]]
         new_song_ids = [music_id for music_id in music_ids if music_id not in existing_music]
         if new_song_ids:
-            self.spotipy.user_playlist_add_tracks(self.username, playlist_id, new_song_ids)
+            self.spotipy.playlist_add_items(playlist_id, new_song_ids)
         else:
             logger.info("No new music to add to the playlist")
 
